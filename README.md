@@ -6,8 +6,15 @@
 
 ### Hierarchy
 1. League Team
+
   Department
+  
+  
     Marketing team
+    
+    
     Legal team
+    
+    
 2. Players Association
 
