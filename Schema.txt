@@ -1,0 +1,6 @@
+3. emergencyContact [memberID,eName, teamRegistrationNo, teamName, ePhone]
+5. LeagueTeam [teamRegistrationNo, teamName, ranking, location, logo, foundationDate, PAName ]
+7. trains [teamRegistrationNo, teamName, backNumber, coachingType, date, course, location]
+9. sponsors [teamRegistrationNo, teamName, sponsor]
+10. memberPhoneNum [teamRegistrationNo, teamName, memberID, phoneNumbers]
+12. department [departmentID,  budget]
