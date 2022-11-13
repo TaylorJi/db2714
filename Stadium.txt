@@ -1,0 +1,7 @@
+CREATE TABLE `MileStone`.`Stadium` (
+  `StadiumID` INT NOT NULL,
+  `Location` VARCHAR(45) NULL,
+  `capacity` INT NULL,
+PRIMARY KEY (`StadiumID`));
+ALTER TABLE `MileStone`.`Stadium` 
+ADD COLUMN `Name` VARCHAR(45) NULL AFTER `StadiumID`;

@@ -1,0 +1,13 @@
+CREATE TABLE GameSchedule(
+Name Varchar(100) not null,
+GameNo int not null,
+StadiumID int,
+date date,
+TeamMatching varchar (100),
+
+primary key (Name, GameNo),
+foreign key (Name) references PlayerAssociation(Name),
+foreign key (StadiumID) references Stadium(StadiumID)
+on delete cascade
+on update cascade
+)

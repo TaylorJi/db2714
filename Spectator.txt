@@ -1,0 +1,17 @@
+CREATE TABLE `MileStone`.`Spectator` (
+  `SeatNumber` INT NOT NULL,
+  `StadiumID` INT NOT NULL,
+  `CheeringTeam` VARCHAR(45) NULL,
+  PRIMARY KEY (`SeatNumber`, `StadiumID`),
+  INDEX `StadiumID_fk_idx` (`StadiumID` ASC) VISIBLE,
+  CONSTRAINT `StadiumID_fk`
+    FOREIGN KEY (`StadiumID`)
+    REFERENCES `MileStone`.`Stadium` (`StadiumID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `SeatNumber_fk`
+    FOREIGN KEY (`SeatNumber`)
+    REFERENCES `MileStone`.`TicketBooth` (`StadiumID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+

@@ -1,0 +1,22 @@
+CREATE TABLE TicketBooth (
+StadiumID int not null,
+BoothID int not null,
+TicketPrice double,
+TypesOfTickets varchar(20),
+NumberOfTicket int,
+
+primary key (StadiumID, BoothID),
+foreign key (StadiumID) references Stadium(StadiumID)
+on delete cascade
+on update cascade
+)
+ALTER TABLE `MileStone`.`TicketBooth` 
+ADD COLUMN `SeatNumber` INT NOT NULL AFTER `NumberOfTicket`;
+UPDATE `MileStone`.`TicketBooth` SET `SeatNumber` = '1' WHERE (`StadiumID` = '1') and (`BoothID` = '1');
+UPDATE `MileStone`.`TicketBooth` SET `SeatNumber` = '2' WHERE (`StadiumID` = '1') and (`BoothID` = '2');
+UPDATE `MileStone`.`TicketBooth` SET `SeatNumber` = '3' WHERE (`StadiumID` = '1') and (`BoothID` = '3');
+UPDATE `MileStone`.`TicketBooth` SET `SeatNumber` = '4' WHERE (`StadiumID` = '1') and (`BoothID` = '4');
+UPDATE `MileStone`.`TicketBooth` SET `SeatNumber` = '1' WHERE (`StadiumID` = '2') and (`BoothID` = '1');
+UPDATE `MileStone`.`TicketBooth` SET `SeatNumber` = '2' WHERE (`StadiumID` = '2') and (`BoothID` = '2');
+UPDATE `MileStone`.`TicketBooth` SET `SeatNumber` = '3' WHERE (`StadiumID` = '2') and (`BoothID` = '3');
+UPDATE `MileStone`.`TicketBooth` SET `SeatNumber` = '4' WHERE (`StadiumID` = '2') and (`BoothID` = '4');

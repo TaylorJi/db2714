@@ -1,0 +1,11 @@
+CREATE TABLE Spectator(
+SeatNumber int not null,
+StadiumID int not null,
+CherringTeam varchar(40),
+
+primary key (SeatNumber, StadiumID),
+foreign key (SeatNumber) references TicketBooth(SeatNumber), 
+foreign key (StadiumID) references Stadium(StadiumID)
+on delete cascade
+on update cascade
+)
