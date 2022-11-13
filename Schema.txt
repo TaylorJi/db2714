@@ -4,3 +4,4 @@
 9. sponsors [teamRegistrationNo, teamName, sponsor]
 10. memberPhoneNum [teamRegistrationNo, teamName, memberID, phoneNumbers]
 12. department [departmentID,  budget]
+21. broadcast [boradcastID, NameOfBroadcast, BoradcastFee]
