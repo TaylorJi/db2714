@@ -1,6 +1,6 @@
 create table members
    (memberID VARCHAR(30) NOT NULL,
-    teamRegistrationNo	VARCHAR(30) NOT NULL,
+    teamRegistrationNo	int NOT NULL,
     teamName VARCHAR(50) NOT NULL,
     firstName VARCHAR(30) NOT NULL,
     midInitial	VARCHAR(30),
@@ -26,7 +26,7 @@ create table marketingTeam
   website varchar(50),
   cs varchar(30),
   CONSTRAINT  mktPK PRIMARY KEY (departmentNO, regionID),
-  CONSTRAINT  mktNoPK FOREIGN KEY (departmentNo) REFERENCE department (departmentNo) 
+  CONSTRAINT  mktNoPK FOREIGN KEY (departmentNo) REFERENCES department (departmentNo) 
   on DELETE CASCADE
   on UPDATE CASCADE
 );
@@ -41,7 +41,7 @@ create table leagalTeam
   contractID varchar(30),
   regulation  varchar(80),
   CONSTRAINT  lgtPK PRIMARY KEY (lawyerLicence),
-  CONSTRAINT  lgtNoPK FOREIGN KEY (departmentNo) REFERENCE department (departmentNo) 
+  CONSTRAINT  lgtNoPK FOREIGN KEY (departmentNo) REFERENCES department (departmentNo) 
   on DELETE CASCADE
   on UPDATE CASCADE
 );
@@ -52,10 +52,10 @@ staff [memberID, roleNo]
 staff.memberID references member.memberID
 
 create table staff
-( memberID int not null,
+( memberID varchar(30) not null,
   roleNo int not null,
   CONSTRAINT  stfPK  PRIMARY KEY (memberID, roleNo),
-  CONSTRAINT  stfFrK FOREIGN KEY (memberID) REFERENCE member (memberID) 
+  CONSTRAINT  stfFrK FOREIGN KEY (memberID) REFERENCES members(memberID) 
   on DELETE CASCADE
   on UPDATE CASCADE
 );
@@ -67,18 +67,20 @@ coach [memberID, coachingType, roleNo]
 coach.memberID references member.memberID
 coach.roleNo references staff.roleNo
 
+//에러좀 찾아주세요...
 create table coach
-( memberID int not null,
+( memberID varchar(30) not null,
   coachingType varchar(30) not null,
   roleNo int not null,
   CONSTRAINT  coaPK PRIMARY KEY (memberID, coachingType),
-  CONSTRAINT  coaFrK FOREIGN KEY (memberID) REFERENCE member (memberID) 
+  CONSTRAINT  coaFrK FOREIGN KEY (memberID) REFERENCES members (memberID) 
   on DELETE CASCADE
   on UPDATE CASCADE,
-  CONSTRAINT  coaroleFrK FOREIGN KEY (roleNo) REFERENCE member (roleNo) 
+  CONSTRAINT  coaroleFrK FOREIGN KEY (roleNo) REFERENCES staff (roleNo) 
   on DELETE CASCADE
   on UPDATE CASCADE
 );
+
 
 
 manager [memberID, managerTier, record, background, roleNo]
@@ -89,21 +91,23 @@ manager.memberID references member.memberID
 staff [memberID, roleNo]
 member [memberID, teamRegistrationNo,]
 
+//missing index for constraint
+
 create table manager
-( memberID int not null,
+( memberID varchar(30) not null,
   managerTier int not null,
   record varchar(30) not null,
   background varchar(50) not null,
-  roleNo int not null
-
+  roleNo int not null,
   CONSTRAINT  manPK PRIMARY KEY (memberID, managerTier),
-  CONSTRAINT  manFrK FOREIGN KEY (memberID) REFERENCE member (memberID) 
+  CONSTRAINT  manFrK FOREIGN KEY (memberID) REFERENCES members (memberID) 
   on DELETE CASCADE
   on UPDATE CASCADE,
-  CONSTRAINT  manrFrK FOREIGN KEY (roleNo) REFERENCE member (roleNo) 
+  CONSTRAINT  manrFrK FOREIGN KEY (roleNo) REFERENCES staff(roleNo) 
   on DELETE CASCADE
   on UPDATE CASCADE
 );
+
 
 player [backNumber, MemberID,  numberOfHR, battingAvg, errRate, offense, defence, tier]
 
