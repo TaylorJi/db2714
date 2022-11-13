@@ -11,10 +11,10 @@ create table members
     weight DECIMAL(3,1),
     dob DATE,
     email VARCHAR(15),
-	PRIMARY KEY	(memberID),
-    FOREIGN KEY (teamRegistrationNo) REFERENCES leagueTeam (teamRegistrationNo) ON UPDATE CASCADE,
-    FOREIGN KEY (teamName) REFERENCES leagueTeam(TeamName) ON UPDATE CASCADE
-    );
+	CONSTRAINT  empPK PRIMARY KEY(memberID),
+    CONSTRAINT  empTeamFK FOREIGN KEY (teamRegistrationNo) REFERENCES leagueTeam (teamRegistrationNo) ON UPDATE CASCADE,
+    CONSTRAINT  empNameFK FOREIGN KEY (teamName) REFERENCES leagueTeam(TeamName) ON UPDATE CASCADE
+);
 
 
 marketingTeam [departmentNo, regionID website, cs]
@@ -25,20 +25,25 @@ create table marketingTeam
   regionID int not null,
   website varchar(50),
   cs varchar(30),
-  PRIMARY KEY (departmentNO, regionID),
-  FOREIGN KEY (departmentNo) REFERENCE department (departmentNo) on UPDATE CASCADE
+  CONSTRAINT  mktPK PRIMARY KEY (departmentNO, regionID),
+  CONSTRAINT  mktNoPK FOREIGN KEY (departmentNo) REFERENCE department (departmentNo) 
+  on DELETE CASCADE
+  on UPDATE CASCADE
 );
 
 
 leagalTeam [departmentID, lawyerLicence, contracID, regulation]
 legalTeam.deaprtmentNo references department.departmentNo
 
-create table marketingTeam
+create table leagalTeam
 ( departmentNo int not null,
-  regionID int not null,
-  website varchar(50),
-  cs varchar(30),
-  FOREIGN KEY (departmentNo) REFERENCE department (departmentNo) on UPDATE CASCADE
+  lawyerLicence int not null,
+  contractID varchar(30),
+  regulation  varchar(80),
+  CONSTRAINT  lgtPK PRIMARY KEY (lawyerLicence),
+  CONSTRAINT  lgtNoPK FOREIGN KEY (departmentNo) REFERENCE department (departmentNo) 
+  on DELETE CASCADE
+  on UPDATE CASCADE
 );
 
 member [memberID, teamRegistrationNo,]
@@ -49,8 +54,8 @@ staff.memberID references member.memberID
 create table staff
 ( memberID int not null,
   roleNo int not null,
-  PRIMARY KEY (memberID, roleNo),
-  FOREIGN KEY (memberID) REFERENCE member (memberID) 
+  CONSTRAINT  stfPK  PRIMARY KEY (memberID, roleNo),
+  CONSTRAINT  stfFrK FOREIGN KEY (memberID) REFERENCE member (memberID) 
   on DELETE CASCADE
   on UPDATE CASCADE
 );
@@ -66,11 +71,11 @@ create table coach
 ( memberID int not null,
   coachingType varchar(30) not null,
   roleNo int not null,
-  PRIMARY KEY (memberID, coachingType),
-  FOREIGN KEY (memberID) REFERENCE member (memberID) 
+  CONSTRAINT  coaPK PRIMARY KEY (memberID, coachingType),
+  CONSTRAINT  coaFrK FOREIGN KEY (memberID) REFERENCE member (memberID) 
   on DELETE CASCADE
   on UPDATE CASCADE,
-  FOREIGN KEY (roleNo) REFERENCE member (roleNo) 
+  CONSTRAINT  coaroleFrK FOREIGN KEY (roleNo) REFERENCE member (roleNo) 
   on DELETE CASCADE
   on UPDATE CASCADE
 );
@@ -91,11 +96,11 @@ create table manager
   background varchar(50) not null,
   roleNo int not null
 
-  PRIMARY KEY (memberID, managerTier),
-  FOREIGN KEY (memberID) REFERENCE member (memberID) 
+  CONSTRAINT  manPK PRIMARY KEY (memberID, managerTier),
+  CONSTRAINT  manFrK FOREIGN KEY (memberID) REFERENCE member (memberID) 
   on DELETE CASCADE
   on UPDATE CASCADE,
-  FOREIGN KEY (roleNo) REFERENCE member (roleNo) 
+  CONSTRAINT  manrFrK FOREIGN KEY (roleNo) REFERENCE member (roleNo) 
   on DELETE CASCADE
   on UPDATE CASCADE
 );
@@ -111,6 +116,6 @@ create table player
     offense DECIMAL(3,1),
     defence	DECIMAL(3,1),
     tier DECIMAL(10,2),
-	PRIMARY KEY (backNumber, MemberID)
+	CONSTRAINT  playPK PRIMARY KEY (backNumber, MemberID)
 );
 
