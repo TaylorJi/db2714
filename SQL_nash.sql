@@ -1,4 +1,6 @@
+/*기존 DB 삭제용
 drop database MileStone;
+*/
 create database MileStone;
 use MileStone;
 
