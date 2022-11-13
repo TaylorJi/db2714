@@ -8,7 +8,7 @@ create table member
     PRIMARY KEY (MemberID));
 
 /* 멀티플 PK가 안되서 일단 teamRegistrationNo만 PK 지정하고
-   PAName은 그냥 놔둠.
+   PAName은 UNIQUE로 지정해둠.
  */
 create table LeagueTeam
 	(teamRegistrationNo		INTEGER AUTO_INCREMENT, 
@@ -59,7 +59,7 @@ create table BroadCast
     NameOfBroadcast			VARCHAR(50) NOT NULL,
     BoradcastFee			INTEGER NOT NULL,
     PRIMARY KEY				(broadcastID));
-
+/* Trains 릴레이션은 일단 테이블로 만들었음 */
 create table Trains
 	(Location				VARCHAR(50) NOT NULL,
     Course					VARCHAR(50) NOT NULL,
