@@ -64,7 +64,7 @@ create table Department
 create table BroadCast
 	(broadcastID			INTEGER AUTO_INCREMENT, 
     NameOfBroadcast			VARCHAR(50) NOT NULL,
-    BoradcastFee			INTEGER NOT NULL,
+    BroadcastFee			INTEGER NOT NULL,
     PRIMARY KEY				(broadcastID));
 /* Trains 릴레이션은 일단 테이블로 만들었음 */
 create table Trains

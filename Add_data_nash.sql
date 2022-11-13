@@ -83,13 +83,13 @@ INSERT INTO Department (DepartmentNo, Budget)
 				VALUES (5, 500000);                
 
 /* Adding the data for broadCast */
-INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BoradcastFee)
+INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee)
 				VALUES (1, 'BNN', 100000);
-INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BoradcastFee)
+INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee)
 				VALUES (2, 'CMT', 150000);
-INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BoradcastFee)
+INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee)
 				VALUES (3, 'CTV', 100000);
-INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BoradcastFee)
+INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee)
 				VALUES (4, 'CBC', 120000);
-INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BoradcastFee)
+INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee)
 				VALUES (5, 'CNN', 130000);                
