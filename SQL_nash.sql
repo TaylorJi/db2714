@@ -1,6 +1,6 @@
-/*기존 DB 삭제용
+
 drop database MileStone;
-*/
+
 create database MileStone;
 use MileStone;
 
@@ -8,6 +8,11 @@ use MileStone;
 create table member
 	(MemberID	INTEGER AUTO_INCREMENT,
     PRIMARY KEY (MemberID));
+
+/* player 테이블이 없어서 일단 필요한 부분만 임시로 만들어 둠 */
+create table player
+	(backNumber		INTEGER NOT NULL,
+    PRIMARY KEY (backNumber));
 
 /* 멀티플 PK가 안되서 일단 teamRegistrationNo만 PK 지정하고
    PAName은 UNIQUE로 지정해둠.
@@ -26,7 +31,7 @@ create table emergencyContact
 	(ePhone					VARCHAR(30),
     eName					VARCHAR(50) NOT NULL,
     teamRegistrationNo		INTEGER,
-    teamName				VARCHAR(50) NOT NULL, 
+    teamName				VARCHAR(50), 
     MemberID				INTEGER AUTO_INCREMENT,
     FOREIGN KEY (teamRegistrationNo) REFERENCES LeagueTeam(teamRegistrationNo) ON UPDATE CASCADE,
     FOREIGN KEY (teamName) REFERENCES LeagueTeam(teamName) ON UPDATE CASCADE,
@@ -34,19 +39,19 @@ create table emergencyContact
     PRIMARY KEY 			(eName));
 
 create table memberPhoneNum
-	(phoneNumbers			VARCHAR(30),
+	(phoneNumber			VARCHAR(30),
     teamRegistrationNo		INTEGER,
-    teamName				VARCHAR(50) NOT NULL, 
+    teamName				VARCHAR(50), 
     MemberID				INTEGER AUTO_INCREMENT,
     FOREIGN KEY (teamRegistrationNo) REFERENCES LeagueTeam(teamRegistrationNo) ON UPDATE CASCADE,
     FOREIGN KEY (teamName) REFERENCES LeagueTeam(teamName) ON UPDATE CASCADE,
     FOREIGN KEY (memberID) REFERENCES member(memberID) ON UPDATE CASCADE,
-    PRIMARY KEY				(phoneNumbers));
+    PRIMARY KEY				(phoneNumber));
     
 create table sponsor
 	(sponsor				VARCHAR(50) NOT NULL,
     teamRegistrationNo		INTEGER,
-    teamName				VARCHAR(50) NOT NULL, 
+    teamName				VARCHAR(50), 
     FOREIGN KEY (teamRegistrationNo) REFERENCES LeagueTeam(teamRegistrationNo) ON UPDATE CASCADE,
     FOREIGN KEY (teamName) REFERENCES LeagueTeam(teamName) ON UPDATE CASCADE,
     PRIMARY KEY				(sponsor));
@@ -65,4 +70,11 @@ create table BroadCast
 create table Trains
 	(Location				VARCHAR(50) NOT NULL,
     Course					VARCHAR(50) NOT NULL,
-    TrainDate				DATE);
+    TrainDate				DATE,
+    teamRegistrationNo		INTEGER,
+    teamName				VARCHAR(50),
+    backNumber				INTEGER,
+    coachingType			VARCHAR(20),
+    FOREIGN KEY (teamRegistrationNo) REFERENCES LeagueTeam(teamRegistrationNo) ON UPDATE CASCADE,
+    FOREIGN KEY (teamName) REFERENCES LeagueTeam(teamName) ON UPDATE CASCADE,
+    FOREIGN KEY (backNumber) REFERENCES player(backNumber) ON UPDATE CASCADE);
