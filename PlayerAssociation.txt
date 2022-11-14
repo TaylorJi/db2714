@@ -1,0 +1,4 @@
+CREATE TABLE `MileStone`.`PlayerAssociation` (
+  `name` VARCHAR(100) NOT NULL,
+  `foundationDate` DATETIME NULL,
+PRIMARY KEY (`name`));
