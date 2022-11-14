@@ -1,11 +1,13 @@
-CREATE TABLE Spectator(
-SeatNumber int not null,
-StadiumID int not null,
-CherringTeam varchar(40),
-
-primary key (SeatNumber, StadiumID),
-foreign key (SeatNumber) references TicketBooth(SeatNumber), 
-foreign key (StadiumID) references Stadium(StadiumID)
-on delete cascade
-on update cascade
-)
+CREATE TABLE `MileStone`.`Refree` (
+  `idNumber` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `firstName` VARCHAR(45) NULL,
+  `midInitial` VARCHAR(45) NULL,
+  `lastName` VARCHAR(45) NULL,
+  PRIMARY KEY (`idNumber`, `name`),
+  INDEX `_idx` (`name` ASC) VISIBLE,
+  CONSTRAINT `name_fk`
+    FOREIGN KEY (`name`)
+    REFERENCES `MileStone`.`PlayerAssociation` (`name`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
