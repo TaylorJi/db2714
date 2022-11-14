@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
--- Host: localhost    Database: lecture
+-- Host: 127.0.0.1    Database: lecture
 -- ------------------------------------------------------
 -- Server version	8.0.31
 
@@ -26,6 +26,28 @@ CREATE TABLE `broadcast` (
   `broadcastID` int NOT NULL AUTO_INCREMENT,
   `NameOfBroadcast` varchar(50) NOT NULL,
   `BroadcastFee` int NOT NULL,
-  PRIMARY KEY (`broadcastID`)
+  PRIMARY KEY (`broadcastID`),
+  UNIQUE KEY `NameOfBroadcast_UNIQUE` (`NameOfBroadcast`),
+  UNIQUE KEY `broadcastID_UNIQUE` (`broadcastID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `broadcast`
+--
+
+LOCK TABLES `broadcast` WRITE;
+/*!40000 ALTER TABLE `broadcast` DISABLE KEYS */;
+/*!40000 ALTER TABLE `broadcast` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-11-13 18:24:43

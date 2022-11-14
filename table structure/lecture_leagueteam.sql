@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
--- Host: localhost    Database: lecture
+-- Host: 127.0.0.1    Database: lecture
 -- ------------------------------------------------------
 -- Server version	8.0.31
 
@@ -31,9 +31,20 @@ CREATE TABLE `leagueteam` (
   `foundationDate` date DEFAULT NULL,
   `PAName` varchar(50) NOT NULL,
   PRIMARY KEY (`teamRegistrationNo`),
-  UNIQUE KEY `teamName` (`teamName`)
+  UNIQUE KEY `teamName` (`teamName`),
+  UNIQUE KEY `teamRegistrationNo_UNIQUE` (`teamRegistrationNo`),
+  UNIQUE KEY `logo_UNIQUE` (`logo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `leagueteam`
+--
+
+LOCK TABLES `leagueteam` WRITE;
+/*!40000 ALTER TABLE `leagueteam` DISABLE KEYS */;
+/*!40000 ALTER TABLE `leagueteam` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -44,4 +55,4 @@ CREATE TABLE `leagueteam` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-13 16:18:20
+-- Dump completed on 2022-11-13 18:24:43
