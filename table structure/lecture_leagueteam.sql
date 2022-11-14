@@ -30,7 +30,7 @@ CREATE TABLE `leagueteam` (
   `logo` varchar(100) DEFAULT NULL,
   `foundationDate` date DEFAULT NULL,
   `PAName` varchar(50) NOT NULL,
-  PRIMARY KEY (`teamRegistrationNo`),
+  PRIMARY KEY (`teamRegistrationNo`,`teamName`),
   UNIQUE KEY `teamName` (`teamName`),
   UNIQUE KEY `teamRegistrationNo_UNIQUE` (`teamRegistrationNo`),
   UNIQUE KEY `logo_UNIQUE` (`logo`)
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-13 18:24:43
+-- Dump completed on 2022-11-13 18:27:41

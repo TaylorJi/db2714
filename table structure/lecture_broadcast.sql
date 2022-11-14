@@ -26,9 +26,11 @@ CREATE TABLE `broadcast` (
   `broadcastID` int NOT NULL AUTO_INCREMENT,
   `NameOfBroadcast` varchar(50) NOT NULL,
   `BroadcastFee` int NOT NULL,
+  `StadiumID' int
   PRIMARY KEY (`broadcastID`),
   UNIQUE KEY `NameOfBroadcast_UNIQUE` (`NameOfBroadcast`),
-  UNIQUE KEY `broadcastID_UNIQUE` (`broadcastID`)
+  UNIQUE KEY `broadcastID_UNIQUE` (`broadcastID`),
+  FOREIGN KEY `StadiumID' REFERENCES `Stadium` (`StadiumID')
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-13 18:24:43
+-- Dump completed on 2022-11-13 18:27:41
