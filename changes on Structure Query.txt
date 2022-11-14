@@ -1,0 +1,7 @@
+Changes on Structure Query
+
+Stadium add not null
+ALTER TABLE `MileStone`.`Stadium` 
+CHANGE COLUMN `Name` `Name` VARCHAR(45) NOT NULL ,
+CHANGE COLUMN `Location` `Location` VARCHAR(45) NOT NULL ,
+CHANGE COLUMN `capacity` `capacity` INT NULL ;
