@@ -3,9 +3,6 @@ create database MileStone;
 use MileStone;
 
 
-/* 멀티플 PK가 안되서 일단 teamRegistrationNo만 PK 지정하고
-   PAName은 UNIQUE로 지정해둠.
- */
 create table LeagueTeam
 	(teamRegistrationNo		INTEGER AUTO_INCREMENT, 
     teamName				VARCHAR(50) NOT NULL UNIQUE, 
@@ -32,10 +29,6 @@ create table Department
     PRIMARY KEY				(DepartmentNo));
     
 
-
-/* Trains 릴레이션은 일단 테이블로 만들었음 */
-
-    /*동일 부분   */ 
 create table member
    (memberID int not null,
     teamRegistrationNo	int NOT NULL,
@@ -130,14 +123,17 @@ create table manager
 
 create table player
    (backNumber int NOT NULL,
-    MemberID int NOT NULL,
+    memberID int NOT NULL,
     numberOfHR int,
     battingAvg DECIMAL(6,2),
     errRate	DECIMAL(3,1),
     offense DECIMAL(3,1),
     defence	DECIMAL(3,1),
     tierroleNo int,
-	CONSTRAINT  playPK PRIMARY KEY (backNumber, MemberID)
+	CONSTRAINT  playPK PRIMARY KEY (backNumber, MemberID),
+    CONSTRAINT  playFrK FOREIGN KEY (memberID) REFERENCES member (memberID) 
+    on DELETE CASCADE
+    on UPDATE CASCADE
 );
 create table Trains
 	(Location				VARCHAR(50) NOT NULL,
@@ -151,10 +147,7 @@ create table Trains
     FOREIGN KEY (teamName) REFERENCES LeagueTeam(teamName) ON UPDATE CASCADE,
     FOREIGN KEY (backNumber) REFERENCES player(backNumber) ON UPDATE CASCADE);
     
-    
-/* 상우씨 */
-
-
+ 
 CREATE TABLE `MileStone`.`PlayerAssociation` (
   `name` VARCHAR(100) NOT NULL,
   `foundationDate` DATETIME NULL,
@@ -236,9 +229,7 @@ CREATE TABLE `broadcast` (
   KEY `StadiumID` (`StadiumID`),
   CONSTRAINT `broadcast_ibfk_1` FOREIGN KEY (`StadiumID`) REFERENCES `stadium` (`StadiumID`) ON UPDATE CASCADE
 );
-/*11 19일 상우씨 수정건 */
 
-/*플랜 테이블 만들었습니다. */
 CREATE TABLE `MileStone`.`Plans` (
   `name` VARCHAR(20) NOT NULL,
   `gameNo` INT NOT NULL,

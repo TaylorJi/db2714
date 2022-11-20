@@ -9,7 +9,7 @@ INSERT INTO LeagueTeam (teamRegistrationNo, teamName, ranking, location, logo, f
 INSERT INTO LeagueTeam (teamRegistrationNo, teamName, ranking, location, logo, foundationDate, PAName) 
 				VALUES (5, 'Quebec Capitals', 5, 'Quebec', 'QC', '1999-03-15', 'Frontier League');
 
-/* 동일 member 데이타. */
+
 insert into member (memberID,teamRegistrationNo,teamName,firstName,midInitial,lastName,address,salary,height,weight,dob,email)
 value (100,1,"Toronto Blue Jays","dong","","kwon","643 toronto",4553223.12,190.2,87.4,"2022-11-03","dikwon79@naver.com");
 insert into member (memberID,teamRegistrationNo,teamName,firstName,midInitial,lastName,address,salary,height,weight,dob,email)
@@ -75,8 +75,6 @@ INSERT INTO Department (DepartmentNo, Budget)
 
                 
 
-/*동일 마케팅 팀 */
-
 insert into marketingTeam (departmentNo,regionID,website,cs) value (1,20,"www.boston.com","service");
 insert into marketingTeam (departmentNo,regionID,website,cs) value (2,30,"www.toronto.com","servicekim");
 insert into marketingTeam (departmentNo,regionID,website,cs) value (3,40,"www.la.com","telservice");
@@ -84,11 +82,11 @@ insert into marketingTeam (departmentNo,regionID,website,cs) value (4,50,"www.na
 insert into marketingTeam (departmentNo,regionID,website,cs) value (5,60,"www.base.com","pareservice");
 
 
-insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (1,123123,"id_443","gedulation1");
-insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (2,123124,"id_888","gedulation2");
-insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (3,123125,"id_777","gedulation3");
-insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (4,123126,"id_666","gedulat4");
-insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (5,123127,"id_555","gedulat567");
+insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (1,123123-111219,"id_443","law");
+insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (2,123124-111287,"id_888","contract");
+insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (3,123125-112762,"id_777","HR");
+insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (4,123126-276554,"id_666","Design");
+insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (5,123127-265512,"id_555","salary");
 
 
 insert into staff (memberID, roleNo) value (101,1);
@@ -112,15 +110,15 @@ insert into manager (memberID,managerTier,record,background,roleNo) value ("103"
 insert into manager (memberID,managerTier,record,background,roleNo) value ("104","5","3.8","pitcher",1);
 
 insert into player (backNumber,MemberID,numberOfHR,battingAvg,errRate,offense,defence,tierroleNo) 
-	value (13,1,45,4.23,1.3,0.3,1.3,7);
+	value (13,100,45,4.23,1.3,0.3,1.3,7);
 insert into player (backNumber,MemberID,numberOfHR,battingAvg,errRate,offense,defence,tierroleNo) 
-	value (7,2,35,3.23,1.9,0.2,1.2,7);
+	value (7,101,35,3.23,1.9,0.2,1.2,7);
 insert into player (backNumber,MemberID,numberOfHR,battingAvg,errRate,offense,defence,tierroleNo) 
-	value (23,3,25,2.13,2.1,0.4,1.8,8);
+	value (23,102,25,2.13,2.1,0.4,1.8,8);
 insert into player (backNumber,MemberID,numberOfHR,battingAvg,errRate,offense,defence,tierroleNo) 
-	value (5,4,15,3.22,1.4,0.5,1.5,8);
+	value (5,103,15,3.22,1.4,0.5,1.5,8);
 insert into player (backNumber,MemberID,numberOfHR,battingAvg,errRate,offense,defence,tierroleNo) 
-	value (11,5,5,3.51,2.6,0.3,2.3,9);
+	value (11,104,5,3.51,2.6,0.3,2.3,9);
 
    
   
