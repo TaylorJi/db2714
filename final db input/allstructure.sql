@@ -79,7 +79,7 @@ create table marketingTeam
   on UPDATE CASCADE
 );
  
- create table leagalTeam
+ create table legalTeam
 ( departmentNo int not null,
   lawyerLicence int not null,
   contractID varchar(30),

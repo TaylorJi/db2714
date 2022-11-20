@@ -81,12 +81,12 @@ insert into marketingTeam (departmentNo,regionID,website,cs) value (3,40,"www.la
 insert into marketingTeam (departmentNo,regionID,website,cs) value (4,50,"www.naver.com","jservice");
 insert into marketingTeam (departmentNo,regionID,website,cs) value (5,60,"www.base.com","pareservice");
 
-
-insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (1,123123-111219,"id_443","law");
-insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (2,123124-111287,"id_888","contract");
-insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (3,123125-112762,"id_777","HR");
-insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (4,123126-276554,"id_666","Design");
-insert into leagalteam (departmentNo,lawyerLicence,contractID,regulation) value (5,123127-265512,"id_555","salary");
+delete from legalteam;
+insert into legalteam (departmentNo,lawyerLicence,contractID,regulation) value (1,1223111219,"id443","law");
+insert into legalteam (departmentNo,lawyerLicence,contractID,regulation) value (2,1124111287,"id888","contract");
+insert into legalteam (departmentNo,lawyerLicence,contractID,regulation) value (3,1125112762,"id777","HR");
+insert into legalteam (departmentNo,lawyerLicence,contractID,regulation) value (4,1126276554,"id666","Design");
+insert into legalteam (departmentNo,lawyerLicence,contractID,regulation) value (5,1127265512,"id555","salary");
 
 
 insert into staff (memberID, roleNo) value (101,1);
