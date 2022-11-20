@@ -1,0 +1,61 @@
+Taylor
+update/create table structure 
+
+//플랜 테이블 만들었습니다.
+CREATE TABLE `MileStone`.`Plans` (
+  `name` VARCHAR(20) NOT NULL,
+  `gameNo` INT NOT NULL,
+  PRIMARY KEY (`name`, `gameNo`));
+
+
+//게임스케줄 테이블에서 데이트를 프라이머리 키로 업데이트 해줬습니다.
+ALTER TABLE `MileStone`.`GameSchedule` 
+DROP FOREIGN KEY `gameschedule_ibfk_2`;
+ALTER TABLE `MileStone`.`GameSchedule` 
+CHANGE COLUMN `StadiumID` `StadiumID` INT NULL ,
+CHANGE COLUMN `date` `date` DATE NOT NULL ,
+DROP PRIMARY KEY,
+ADD PRIMARY KEY (`Name`, `GameNo`, `date`);
+;
+ALTER TABLE `MileStone`.`GameSchedule` 
+ADD CONSTRAINT `gameschedule_ibfk_2`
+  FOREIGN KEY (`StadiumID`)
+  REFERENCES `MileStone`.`Stadium` (`StadiumID`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+
+
+
+// plan 테이블 변경사항: 데이트 프라이머리키, 데이트를 foreign key로 설정, 에러 나오는지 주의
+ALTER TABLE `MileStone`.`Plans` 
+ADD COLUMN `date` DATE NOT NULL AFTER `gameNo`,
+DROP PRIMARY KEY,
+ADD PRIMARY KEY (`name`, `gameNo`, `date`),
+ADD INDEX `gameNo_fk_idx` (`gameNo` ASC) VISIBLE,
+ADD INDEX `date_fk_idx` (`date` ASC) VISIBLE;
+;
+ALTER TABLE `MileStone`.`Plans` 
+ADD CONSTRAINT `name_fk`
+  FOREIGN KEY (`name`)
+  REFERENCES `MileStone`.`PlayerAssociation` (`name`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `gameNo_fk`
+  FOREIGN KEY (`gameNo`)
+  REFERENCES `MileStone`.`GameSchedule` (`GameNo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `date_fk`
+  FOREIGN KEY (`date`)
+  REFERENCES `MileStone`.`GameSchedule` (`date`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+// data insert into Plans table 
+insert into Plans values ('MLB', 1, "2022-11-23");
+insert into Plans values ('MLB', 2, "2022-11-30");
+insert into Plans values ('MLB', 3, "2022-11-30");
+insert into Plans values ('MLB', 4, "2022-12-01");
+insert into Plans values ('MLB', 5, "2022-12-03");
+
