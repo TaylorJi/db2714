@@ -1,3 +1,4 @@
+
 INSERT INTO LeagueTeam (teamRegistrationNo, teamName, ranking, location, logo, foundationDate, PAName) 
 				VALUES (1, 'Toronto Blue Jays', 2, 'Toronto', 'TBJ', '1977-11-11', 'American League');
 INSERT INTO LeagueTeam (teamRegistrationNo, teamName, ranking, location, logo, foundationDate, PAName) 
@@ -81,7 +82,6 @@ insert into marketingTeam (departmentNo,regionID,website,cs) value (3,40,"www.la
 insert into marketingTeam (departmentNo,regionID,website,cs) value (4,50,"www.naver.com","jservice");
 insert into marketingTeam (departmentNo,regionID,website,cs) value (5,60,"www.base.com","pareservice");
 
-delete from legalteam;
 insert into legalteam (departmentNo,lawyerLicence,contractID,regulation) value (1,1223111219,"id443","law");
 insert into legalteam (departmentNo,lawyerLicence,contractID,regulation) value (2,1124111287,"id888","contract");
 insert into legalteam (departmentNo,lawyerLicence,contractID,regulation) value (3,1125112762,"id777","HR");
@@ -190,3 +190,10 @@ insert into Plans values ('MLB', 2, "2022-11-30");
 insert into Plans values ('MLB', 3, "2022-11-30");
 insert into Plans values ('MLB', 4, "2022-12-01");
 insert into Plans values ('MLB', 5, "2022-12-03");
+
+
+insert into trains values ('Vancouver', 'Pitching', "2022-12-03", 1, 'Toronto Blue Jays', 13, 'pitcher');
+insert into trains values ('Toronto', 'Hitting', "2022-12-03", 2, 'Vancouver Canadians', 7, 'hitter');
+insert into trains values ('Montréal', 'Catching', "2022-12-03", 3, 'Winnipeg Goldeyes', 23, 'catcher');
+insert into trains values ('Ottawa', 'Outfielding', "2022-12-03", 4, 'Ottawa Titans', 5, 'outfielder');
+insert into trains values ('Calgary', 'Infielding', "2022-12-03", 5, 'Quebec Capitals', 11, 'infielder');
