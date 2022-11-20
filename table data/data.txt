@@ -11,40 +11,40 @@ INSERT INTO LeagueTeam (teamRegistrationNo, teamName, ranking, location, logo, f
 				VALUES (5, 'Quebec Capitals', 5, 'Quebec', 'QC', '1999-03-15', 'Frontier League');
                 
 /* Adding the data for emergencyContact */
-INSERT INTO emergencyContact (ePhone, eName)
-				VALUES ('778-123-4567', 'James Gibbson');
-INSERT INTO emergencyContact (ePhone, eName)
-				VALUES ('778-556-9573', 'Lukas Berra');
-INSERT INTO emergencyContact (ePhone, eName)
-				VALUES ('778-967-2241', 'Patrick Garcia');
-INSERT INTO emergencyContact (ePhone, eName)
-				VALUES ('778-442-9674', 'Darren Smith');
-INSERT INTO emergencyContact (ePhone, eName)
-				VALUES ('778-233-5662', 'Bruce Bonsar');
+INSERT INTO emergencyContact (ePhone, eName, teamRegistrationNo, teamName, MemberID)
+				VALUES ('778-123-4567', 'James Gibbson', 1, 'Toronto Blue Jays', 100);
+INSERT INTO emergencyContact (ePhone, eName, teamRegistrationNo, teamName, MemberID)
+				VALUES ('778-556-9573', 'Lukas Berra', 2, 'Vancouver Canadians', 101);
+INSERT INTO emergencyContact (ePhone, eName, teamRegistrationNo, teamName, MemberID)
+				VALUES ('778-967-2241', 'Patrick Garcia', 3, 'Winnipeg Goldeyes', 102);
+INSERT INTO emergencyContact (ePhone, eName, teamRegistrationNo, teamName, MemberID)
+				VALUES ('778-442-9674', 'Darren Smith', 4, 'Ottawa Titans', 103);
+INSERT INTO emergencyContact (ePhone, eName, teamRegistrationNo, teamName, MemberID)
+				VALUES ('778-233-5662', 'Bruce Bonsar', 5, 'Quebec Capitals', 104);
 
 /* Adding the data for memberPhoneNum */
-INSERT INTO memberPhoneNum (phoneNumber)
-				VALUES ('778-363-4923');
-INSERT INTO memberPhoneNum (phoneNumber)
-				VALUES ('778-243-9675');
-INSERT INTO memberPhoneNum (phoneNumber)
-				VALUES ('778-384-2833');
-INSERT INTO memberPhoneNum (phoneNumber)
-				VALUES ('778-253-2984');
-INSERT INTO memberPhoneNum (phoneNumber)
-				VALUES ('778-533-9753');                
+INSERT INTO memberPhoneNum (phoneNumber, teamRegistrationNo, teamName, MemberID)
+				VALUES ('778-363-4923', 1, 'Toronto Blue Jays', 100);
+INSERT INTO memberPhoneNum (phoneNumber, teamRegistrationNo, teamName, MemberID)
+				VALUES ('778-243-9675', 2, 'Vancouver Canadians', 101);
+INSERT INTO memberPhoneNum (phoneNumber, teamRegistrationNo, teamName, MemberID)
+				VALUES ('778-384-2833', 3, 'Winnipeg Goldeyes', 102);
+INSERT INTO memberPhoneNum (phoneNumber, teamRegistrationNo, teamName, MemberID)
+				VALUES ('778-253-2984', 4, 'Ottawa Titans', 103);
+INSERT INTO memberPhoneNum (phoneNumber, teamRegistrationNo, teamName, MemberID)
+				VALUES ('778-533-9753', 5, 'Quebec Capitals', 104);                
 
 /* Adding the data for sponsor */
-INSERT INTO sponsor (sponsor)
-				VALUES ('Magna International');
-INSERT INTO sponsor (sponsor)
-				VALUES ('TD Bank');
-INSERT INTO sponsor (sponsor)
-				VALUES ('Enbridge');
-INSERT INTO sponsor (sponsor)
-				VALUES ('Canadian Pacific');
-INSERT INTO sponsor (sponsor)
-				VALUES ('Tellus');                
+INSERT INTO sponsor (sponsor, teamRegistrationNo, teamName)
+				VALUES ('Magna International', 1, 'Toronto Blue Jays');
+INSERT INTO sponsor (sponsor, teamRegistrationNo, teamName)
+				VALUES ('TD Bank', 2, 'Vancouver Canadians');
+INSERT INTO sponsor (sponsor, teamRegistrationNo, teamName)
+				VALUES ('Enbridge', 3, 'Winnipeg Goldeyes');
+INSERT INTO sponsor (sponsor, teamRegistrationNo, teamName)
+				VALUES ('Canadian Pacific', 4, 'Ottawa Titans');
+INSERT INTO sponsor (sponsor, teamRegistrationNo, teamName)
+				VALUES ('Tellus', 5, 'Quebec Capitals');                
                 
 /* Adding the data for department */
 INSERT INTO Department (DepartmentNo, Budget)
@@ -59,13 +59,13 @@ INSERT INTO Department (DepartmentNo, Budget)
 				VALUES (5, 500000);                
 
 /* Adding the data for broadCast */
-INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee)
-				VALUES (1, 'BNN', 100000);
-INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee)
-				VALUES (2, 'CMT', 150000);
-INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee)
-				VALUES (3, 'CTV', 100000);
-INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee)
-				VALUES (4, 'CBC', 120000);
-INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee)
-				VALUES (5, 'CNN', 130000);                
+INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee, StadiumID)
+				VALUES (1, 'BNN', 100000, 1);
+INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee, StadiumID)
+				VALUES (2, 'CMT', 150000, 2);
+INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee, StadiumID)
+				VALUES (3, 'CTV', 100000, 3);
+INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee, StadiumID)
+				VALUES (4, 'CBC', 120000, 4);
+INSERT INTO BroadCast (broadcastID, NameOfBroadcast, BroadcastFee, StadiumID)
+				VALUES (5, 'CNN', 130000, 5);                
